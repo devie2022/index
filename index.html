@@ -6,24 +6,34 @@
     <title>我们的幸福时光</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "Microsoft YaHei", sans-serif; background: #f9f9f9; padding: 20px; }
+        body { font-family: "Microsoft YaHei", sans-serif; background: #f0f2f5; padding: 40px 20px; }
         
         /* 顶部标题区域 */
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { font-size: 2.5rem; color: #333; margin-bottom: 10px; }
-        .family-names { color: #666; font-size: 1.2rem; letter-spacing: 2px; }
+        header { text-align: center; margin-bottom: 50px; }
+        h1 { font-size: 3rem; color: #1a1a1a; margin-bottom: 15px; font-weight: 700; }
+        .family-names { color: #555; font-size: 1.3rem; letter-spacing: 4px; border-top: 2px solid #333; display: inline-block; padding-top: 10px; }
 
-        /* 轮播区域 */
-        .banner-container { width: 100%; max-width: 1000px; height: 400px; margin: 0 auto 50px; overflow: hidden; border-radius: 15px; position: relative; }
-        .banner-slide { width: 100%; height: 100%; object-fit: cover; animation: fade 20s infinite; }
+        /* 优化后的动态轮播区域 */
+        .banner-container { width: 100%; max-width: 1100px; height: 550px; margin: 0 auto 60px; overflow: hidden; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; }
+        .banner-slide { width: 100%; height: 100%; object-fit: cover; animation: fade 24s infinite; }
 
-        /* 照片墙布局 */
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .photo-item { border-radius: 10px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .photo-item:hover { transform: scale(1.03); }
-        .photo-item img { width: 100%; height: 300px; object-fit: cover; }
+        /* 优化后的照片墙：采用错落式排版 */
+        .photo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+        .photo-item { border-radius: 15px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: all 0.4s ease; background: #fff; padding: 10px; }
+        .photo-item:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .photo-item img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; }
 
-        /* 动态效果 */
+        /* 让照片错落有致 */
+        .photo-item:nth-child(1) { grid-column: span 2; height: 450px; } 
+        .photo-item:nth-child(1) img { height: 100%; }
+
+        /* 动态轮播关键帧 */
         @keyframes fade {
             0%, 16% { content: url('banner1.jpg'); }
             17%, 33% { content: url('banner2.jpg'); }
